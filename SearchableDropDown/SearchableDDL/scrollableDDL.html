@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="fSelect.css" rel="stylesheet" />
+    <link href="../mCustomScrollbar.css" rel="stylesheet" />
+
+
+    <script src="../jquery-2.0.js"></script>
+    <script src="fSelect.js"></script>
+    <script src="../mCustomScrollbar.js"></script>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        .fs-wrap {
+            border-bottom: 2px solid #002b80;
+        }
+    </style>
+</head>
+<body>
+    <select name='standard' class='standard'>
+    </select>
+    <script>
+        //$(function () {
+        //    $("#standard").customselect();
+        //    $(".custom-select").find('ul').parent().mCustomScrollbar({
+        //        theme: "rounded-dark",
+        //        scrollButtons: { enable: true },
+        //        axis: "y",
+        //        // scrollbarPosition: "outside",
+        //        // mouseWheel: { scrollAmount: 188 },
+        //    });
+        //});
+
+        $(document).ready(function () {
+            var StringBuilderClass = function () { this.value = ""; };
+            StringBuilderClass.prototype.append = function (value) { this.value += value; };
+            StringBuilderClass.prototype.toString = function () { return this.value; };
+            var sb = new StringBuilderClass();
+            sb.append("<option value='1'>Alabama</option><option value='2'>Alaska</option><option value='3'>California</option><option value='4'>Arizona</option><option value='5'>Colorado</option><option value='6'>Delaware</option><option value='7'>Hawaii</option><option value='8'>Idaho</option><option value='9'>Indiana</option><option value='10'>Maryland</option>");
+            $(".standard").empty().append(sb.toString());
+            $(".standard").fSelect();
+            $(".fs-options").mCustomScrollbar({
+                axis: "y",
+                theme: "dark-thin",
+                // scrollButtons: { enable: true },
+                autoExpandScrollbar: true,
+            });
+        });
+        //get selected Data
+        //$("select option:selected").text()
+    </script>
+
+</body>
+</html>
